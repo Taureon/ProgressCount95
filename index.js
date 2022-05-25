@@ -36,10 +36,10 @@ client.on('interactionCreate', async interaction => {
 	} catch (error) {
 	    console.log(`${error}\n\n`)
 	    if (interaction.user.id !== "284804878604435476") {
-            interaction.reply({content: `if you are seeing this, <@284804878604435476> messed up somehow. send this error to him plz :)\n\n\`\`\`${btoa(error)}\`\`\``, ephemeral: true})
-        } else {
-            interaction.reply({content: `wow good job you fucked something up (again)\n\n\`\`\`${error}\`\`\``, ephemeral: true})
-        }
+                interaction.reply({content: `if you are seeing this, <@284804878604435476> messed up somehow. send this error to him plz :)\n\n\`\`\`${btoa(error)}\`\`\``, ephemeral: true})
+            } else {
+                interaction.reply({content: `wow good job you fucked something up (again)\n\n\`\`\`${error}\`\`\``, ephemeral: true})
+            }
 	}
 });
 
