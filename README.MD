@@ -1,3 +1,8 @@
+## Note
+
+These are some changes that I made because I was bored at 22:30.
+Expect inconsistency, if that appears anywhere.
+
 # ProgressCount95
 
 The counting bot for the Progressbar95 Fan Server - Now open sourced by request.
