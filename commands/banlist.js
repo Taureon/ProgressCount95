@@ -9,24 +9,26 @@ module.exports = {
         .setName('banlist')
         .setDescription(`Look at all the dead people.`),
     async execute(interaction) {
-        if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_ROLES)) { //I'm using MANAGE_ROLES because it's a permission that is only available to all staff members - even helpers. This can be bumped to MANAGE_MEMBERS later.
+        //I'm using MANAGE_ROLES because it's a permission that is only available to all staff members - even helpers.
+        //This can be bumped to MANAGE_MEMBERS later.
+        if (interaction.member.permissions.has(Permissions.FLAGS.MANAGE_ROLES)) {
             let banlist = '';
 
-            for (var i=0; i < banMBR.length; i++) {
-                banlist += `**${i+1}.** <@${banMBR[i].id}> - ${banMBR[i].reason}\n`
-            }
+            for (var i=0; i < banMBR.length; i++) banlist += `**${i+1}.** <@${banMBR[i].id}> - ${banMBR[i].reason}\n`;
 
-            if (banlist == '') {
-                banlist = '**No one is banned from counting.**'
-            }
+            if (banlist == '') banlist = '**No one is banned from counting.**';
+            
             //create message embed
             const embed = new MessageEmbed()
                 .setTitle('List of banned members from Counting')
                 .setDescription(banlist)
                 .setColor('#ff0000')
-            return interaction.reply({embeds: [embed]}); 
+            interaction.reply({embeds: [embed]}); 
         } else {
-            return interaction.reply({ content: `❌ **You cannot do this!**`, ephemeral: true });
+            interaction.reply({
+                content: `❌ **You cannot do this!**`,
+                ephemeral: true
+            });
         }
     },
 };
